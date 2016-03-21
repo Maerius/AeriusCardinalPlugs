@@ -1,4 +1,3 @@
-from urllib import urlopen
 import json
 
 CVEJSON = 'https://www.cvedetails.com/json-feed.php?vendor_id=0&product_id=0&version_id=0&orderby=1&cvssscoremin=8&numrows=3'
