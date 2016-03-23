@@ -21,7 +21,6 @@ class CvePlugin(object):
             summary = data[0]['summary']
             response = '%s - Score: %s - Published: %s - Updated: %s  - Description:\n%s\n' % (cve_id, cvss_score, publish_date, update_date, summary)
             cardinal.sendMsg(channel, response.encode('utf-8'))
-            cardinal.sendMsg(channel, "-----------------------------------------------")
 #CVE #2
             cve_id = data[1]['cve_id']
             cvss_score = data[1]['cvss_score']
@@ -30,7 +29,6 @@ class CvePlugin(object):
             summary = data[1]['summary']
             response = '%s - Score: %s - Published: %s - Updated: %s  - Description:\n%s\n' % (cve_id, cvss_score, publish_date, update_date, summary)
             cardinal.sendMsg(channel, response.encode('utf-8'))
-            cardinal.sendMsg(channel, "-----------------------------------------------")
 #CVE #3
             cve_id = data[2]['cve_id']
             cvss_score = data[2]['cvss_score']
@@ -39,7 +37,6 @@ class CvePlugin(object):
             summary = data[2]['summary']
             response = '%s - Score: %s - Published: %s - Updated: %s  - Description:\n%s\n' % (cve_id, cvss_score, publish_date, update_date, summary)
             cardinal.sendMsg(channel, response.encode('utf-8'))
-            cardinal.sendMsg(channel, "-----------------------------------------------")
         except Exception:
             cardinal.sendMsg(channel, "Could not retrieve latest cves")
 
