@@ -13,32 +13,16 @@ class CvePlugin(object):
             data = json.loads(f)
             cardinal.sendMsg(channel, " -- 3 latests critical CVE's with exploits available -- ")
             cardinal.sendMsg(channel, "-----------------------------------------------")
-#CVE #1
-            cve_id = data[0]['cve_id']
-            cvss_score = data[0]['cvss_score']
-            publish_date = data[0]['publish_date']
-            update_date = data[0]['update_date']
-            summary = data[0]['summary']
-            response = '%s - Score: %s - Published: %s - Updated: %s  - Description:\n%s\n' % (cve_id, cvss_score, publish_date, update_date, summary)
-            cardinal.sendMsg(channel, response.encode('utf-8'))
-#CVE #2
-            cve_id = data[1]['cve_id']
-            cvss_score = data[1]['cvss_score']
-            publish_date = data[1]['publish_date']
-            update_date = data[1]['update_date']
-            summary = data[1]['summary']
-            response = '%s - Score: %s - Published: %s - Updated: %s  - Description:\n%s\n' % (cve_id, cvss_score, publish_date, update_date, summary)
-            cardinal.sendMsg(channel, response.encode('utf-8'))
-#CVE #3
-            cve_id = data[2]['cve_id']
-            cvss_score = data[2]['cvss_score']
-            publish_date = data[2]['publish_date']
-            update_date = data[2]['update_date']
-            summary = data[2]['summary']
-            response = '%s - Score: %s - Published: %s - Updated: %s  - Description:\n%s\n' % (cve_id, cvss_score, publish_date, update_date, summary)
-            cardinal.sendMsg(channel, response.encode('utf-8'))
+
+            for cve in data:
+                cve_text = (
+                    '%s - Score: %s - Published: %s - Updated: %s  - Description:\n%s\n'
+                    % (cve['cve_id'], cve['cvss_score', cve['publish_date'], cve['update_date'], cve['summary']))
+
+                cardinal.sendMsg(channel, cve_text.encode('utf-8'))
+
         except Exception:
-            cardinal.sendMsg(channel, "Could not retrieve latest cves")
+            cardinal.sendMsg(channel, "Could not retrieve latest CVEs")
 
     get_cves.commands = ['cves']
     get_cves.help = ['Returns latest cves',
