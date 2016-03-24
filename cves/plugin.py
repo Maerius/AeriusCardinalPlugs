@@ -17,7 +17,7 @@ class CvePlugin(object):
             for cve in data:
                 cve_text = (
                     '%s - Score: %s - Published: %s - Updated: %s  - Description:\n%s\n'
-                    % (cve['cve_id'], cve['cvss_score', cve['publish_date'], cve['update_date'], cve['summary']))
+                    % (cve['cve_id'], cve['cvss_score'], cve['publish_date'], cve['update_date'], cve['summary']))
 
                 cardinal.sendMsg(channel, cve_text.encode('utf-8'))
 
